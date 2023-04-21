@@ -101,6 +101,9 @@ export interface TDSnapshot {
   }
   appState: {
     currentStyle: ShapeStyles
+    currentStickyStyle: ShapeStyles
+    currentShapeStyle: ShapeStyles
+    currentDrawStyle: ShapeStyles
     currentPageId: string
     hoveredId?: string
     activeTool: TDToolType
@@ -113,6 +116,7 @@ export interface TDSnapshot {
     isLoading: boolean
     disableAssets: boolean
     selectByContain?: boolean
+    selectedSticker: string
   }
   document: TDDocument
   room?: {
@@ -224,6 +228,7 @@ export type TDToolType =
   | TDShapeType.Line
   | TDShapeType.Arrow
   | TDShapeType.Sticky
+  | TDShapeType.Sticker
 
 export type Easing =
   | 'linear'
@@ -293,6 +298,7 @@ export enum TDShapeType {
   Group = 'group',
   Image = 'image',
   Video = 'video',
+  Sticker = 'sticker',
 }
 
 export enum Decoration {
@@ -384,12 +390,18 @@ export interface TextShape extends TDBaseShape {
   type: TDShapeType.Text
   text: string
 }
-
 // The shape created by the sticky tool
 export interface StickyShape extends TDBaseShape {
   type: TDShapeType.Sticky
   size: number[]
   text: string
+}
+
+export interface StickerShape extends TDBaseShape {
+  type: TDShapeType.Sticker
+  size: number[]
+  assetId: string
+  svg:string
 }
 
 // The shape created when multiple shapes are grouped
@@ -411,18 +423,19 @@ export type TDShape =
   | StickyShape
   | ImageShape
   | VideoShape
+  | StickerShape
 
 /* ------------------ Shape Styles ------------------ */
 
 export enum ColorStyle {
   White = 'white',
-  LightGray = 'lightGray',
-  Gray = 'gray',
+  // LightGray = 'lightGray',
+  // Gray = 'gray',
   Black = 'black',
   Green = 'green',
-  Cyan = 'cyan',
+  // Cyan = 'cyan',
   Blue = 'blue',
-  Indigo = 'indigo',
+  Pink = 'pink',
   Violet = 'violet',
   Red = 'red',
   Orange = 'orange',

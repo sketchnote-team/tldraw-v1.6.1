@@ -5,3 +5,4 @@ export * from './useTheme'
 export * from './useTldrawApp'
 export * from './useTranslation'
 export * from './useDialog'
+export * from './useCursor';

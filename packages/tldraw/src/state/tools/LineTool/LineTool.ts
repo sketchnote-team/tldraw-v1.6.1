@@ -17,7 +17,7 @@ export class LineTool extends BaseTool {
       currentPoint,
       currentGrid,
       settings: { showGrid },
-      appState: { currentPageId, currentStyle },
+      appState: { currentPageId, currentShapeStyle },
     } = this.app
 
     const childIndex = this.getNextChildIndex()
@@ -33,7 +33,7 @@ export class LineTool extends BaseTool {
         start: undefined,
         end: undefined,
       },
-      style: { ...currentStyle },
+      style: { ...currentShapeStyle },
     })
 
     this.app.patchCreate([newShape])

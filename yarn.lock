@@ -2813,6 +2813,36 @@
     tsconfig-replace-paths "^0.0.11"
     zlib "^1.0.5"
 
+"@tldraw/tldraw@*":
+  version "1.29.2"
+  resolved "https://registry.npmjs.org/@tldraw/tldraw/-/tldraw-1.29.2.tgz#dd32d5cb3dcffe530d724385b52dbd8aa7b10c7f"
+  integrity sha512-s7evSbiSjQoMXazZaan6TwV5OxEGC2+A030wtokEfF82d5GlJ6oPadlSbx4v53rDrRfTB2wS9vIKOrahKyf7uQ==
+  dependencies:
+    "@fontsource/caveat-brush" "^4.5.9"
+    "@fontsource/crimson-pro" "^4.5.10"
+    "@fontsource/recursive" "^4.5.11"
+    "@fontsource/source-code-pro" "^4.5.12"
+    "@fontsource/source-sans-pro" "^4.5.11"
+    "@radix-ui/react-alert-dialog" "^1.0.0"
+    "@radix-ui/react-context-menu" "^1.0.0"
+    "@radix-ui/react-dialog" "^1.0.0"
+    "@radix-ui/react-dropdown-menu" "^1.0.0"
+    "@radix-ui/react-icons" "^1.1.1"
+    "@radix-ui/react-popover" "^1.0.0"
+    "@radix-ui/react-tooltip" "^1.0.0"
+    "@stitches/react" "^1.2.8"
+    "@tldraw/core" "^1.23.2"
+    "@tldraw/intersect" "^1.9.2"
+    "@tldraw/vec" "^1.9.2"
+    browser-fs-access "^0.31.0"
+    idb-keyval "^6.2.0"
+    perfect-freehand "^1.2.0"
+    react-error-boundary "^3.1.4"
+    react-hotkeys-hook "^3.4.7"
+    react-intl "^6.1.1"
+    tslib "^2.4.0"
+    zustand "^4.1.1"
+
 "@tootallnate/once@1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"

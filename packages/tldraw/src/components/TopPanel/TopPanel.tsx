@@ -75,7 +75,7 @@ export function _TopPanel({
   )
 }
 
-const StyledTopPanel = styled('div', {
+export const StyledTopPanel = styled('div', {
   width: '100%',
   position: 'absolute',
   top: 0,

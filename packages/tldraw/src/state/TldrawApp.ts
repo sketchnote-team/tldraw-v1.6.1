@@ -84,6 +84,7 @@ import { SelectTool } from './tools/SelectTool'
 import { StickyTool } from './tools/StickyTool'
 import { TextTool } from './tools/TextTool'
 import { TriangleTool } from './tools/TriangleTool'
+import { StickerTool } from './tools/StickerTool/StickerTool'
 
 const uuid = Utils.uniqueId()
 
@@ -208,6 +209,7 @@ export class TldrawApp extends StateManager<TDSnapshot> {
     [TDShapeType.Line]: new LineTool(this),
     [TDShapeType.Arrow]: new ArrowTool(this),
     [TDShapeType.Sticky]: new StickyTool(this),
+    [TDShapeType.Sticker]: new StickerTool(this),
   }
 
   currentTool: BaseTool = this.tools.select
@@ -1147,6 +1149,15 @@ export class TldrawApp extends StateManager<TDSnapshot> {
       },
       `selected_tool:${type}`
     )
+  }
+
+  //select the sticker svg
+  selectSticker = (svg:string): this =>{
+    return this.patchState({
+      appState:{
+        selectedSticker: svg
+      }
+    })
   }
 
   /**
@@ -4212,6 +4223,9 @@ export class TldrawApp extends StateManager<TDSnapshot> {
       hoveredId: undefined,
       currentPageId: 'page',
       currentStyle: defaultStyle,
+      currentStickyStyle:defaultStyle,
+      currentShapeStyle:defaultStyle,
+      currentDrawStyle:defaultStyle,
       isToolLocked: false,
       isMenuOpen: false,
       isEmptyCanvas: false,
@@ -4219,6 +4233,7 @@ export class TldrawApp extends StateManager<TDSnapshot> {
       snapLines: [],
       isLoading: false,
       disableAssets: false,
+      selectedSticker: ''
     },
     document: TldrawApp.defaultDocument,
   }

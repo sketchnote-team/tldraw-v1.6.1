@@ -1,6 +1,9 @@
-export * from './Tldraw'
+// export * from './Tldraw'
 export * from './types'
 export * from './state/shapes'
 export * from './state/TLDR'
-export { TldrawApp } from './state'
-export { useFileSystem } from './hooks'
+export * from './state'
+export * from './hooks'
+export * from './constants';
+export * from './styles';
+export * from './components';

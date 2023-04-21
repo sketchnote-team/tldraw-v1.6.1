@@ -1,19 +1,18 @@
+import Vec from '@tldraw/vec'
 import type { TLPointerEventHandler } from '@tldraw/core'
 import { Utils } from '@tldraw/core'
-import Vec from '@tldraw/vec'
-import { Sticky } from '~state/shapes'
-import { BaseTool, Status } from '~state/tools/BaseTool'
+import { Sticker } from '~state/shapes'
 import { SessionType, TDShapeType } from '~types'
+import { BaseTool, Status } from '../BaseTool'
 
-export class StickyTool extends BaseTool {
-  type = TDShapeType.Sticky as const
+export class StickerTool extends BaseTool {
+  type = TDShapeType.Sticker as const
 
   shapeId?: string
 
   /* ----------------- Event Handlers ----------------- */
 
   onPointerDown: TLPointerEventHandler = () => {
-    if (this.app.readOnly) return
     if (this.status === Status.Creating) {
       this.setStatus(Status.Idle)
 
@@ -38,19 +37,21 @@ export class StickyTool extends BaseTool {
 
       this.shapeId = id
 
-      const newShape = Sticky.create({
+      const newShape = Sticker.create({
         id,
         parentId: currentPageId,
         childIndex,
         point: showGrid ? Vec.snap(currentPoint, currentGrid) : currentPoint,
         style: { ...currentStickyStyle },
+        svg: this.app.appState.selectedSticker
       })
 
-      const bounds = Sticky.getBounds(newShape)
+      console.log(this.app.appState)
+      const bounds = Sticker.getBounds(newShape)
 
       newShape.point = Vec.sub(newShape.point, [bounds.width / 2, bounds.height / 2])
 
-      this.app.patchCreate([newShape])
+      this.app.createShapes(newShape)
 
       this.app.startSession(SessionType.Translate)
 
@@ -59,12 +60,10 @@ export class StickyTool extends BaseTool {
   }
 
   onPointerUp: TLPointerEventHandler = () => {
-    if (this.app.readOnly) return
     if (this.status === Status.Creating) {
       this.setStatus(Status.Idle)
       this.app.completeSession()
       this.app.selectTool('select')
-      this.app.setEditingId(this.shapeId)
     }
   }
 }

@@ -17,7 +17,7 @@ export class EllipseTool extends BaseTool {
       currentPoint,
       currentGrid,
       settings: { showGrid },
-      appState: { currentPageId, currentStyle },
+      appState: { currentPageId, currentShapeStyle },
     } = this.app
 
     const childIndex = this.getNextChildIndex()
@@ -29,7 +29,7 @@ export class EllipseTool extends BaseTool {
       parentId: currentPageId,
       childIndex,
       point: showGrid ? Vec.snap(currentPoint, currentGrid) : currentPoint,
-      style: { ...currentStyle },
+      style: { ...currentShapeStyle },
     })
 
     this.app.patchCreate([newShape])
