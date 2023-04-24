@@ -9,6 +9,7 @@ import { SelectTool } from './SelectTool'
 import { StickyTool } from './StickyTool'
 import { TextTool } from './TextTool'
 import { TriangleTool } from './TriangleTool'
+import { StickerTool } from './StickerTool'
 
 export interface ToolsMap {
   select: typeof SelectTool
