@@ -4214,7 +4214,7 @@ export class TldrawApp extends StateManager<TDSnapshot> {
       showCloneHandles: false,
       showGrid: false,
       language: 'en',
-      dockPosition: 'bottom',
+      dockPosition: 'left',
       exportBackground: TDExportBackground.Transparent,
     },
     appState: {

@@ -1,4 +1,4 @@
-// export * from './Tldraw'
+// export {TldrawProps, Tldraw} from './Tldraw'
 export * from './types'
 export * from './state/shapes'
 export * from './state/TLDR'
